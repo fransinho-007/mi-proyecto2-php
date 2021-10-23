@@ -17,7 +17,7 @@ class Request
 
     function setController()
     {
-        $this->controller = $this->url[3];
+        $this->controller = $this->url[1];
     }
 
     function getController()
@@ -27,7 +27,7 @@ class Request
 
     function setMethod()
     {
-        $this->method = $this->url[4];
+        $this->method = $this->url[2];
     }
 
     function getMethod()
