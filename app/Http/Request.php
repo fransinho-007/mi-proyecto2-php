@@ -17,17 +17,30 @@ class Request
 
     function setController()
     {
-        $this->controller = $this->url[3];
+        // ¿pregunta si en la casilla 3 del array url esta vacia?
+        if (empty($this->url[1])) {
+            // estableser el controllador por defecto
+            $this->controller = 'home';
+        } else {
+            // estableser el controlador solicitado por url
+            $this->controller = $this->url[1];
+        }
     }
 
     function getController()
     {
-        return $this->controller;
+        $miController = strtolower($this->controller);
+        $miController = ucfirst($miController);
+        return "App\Http\Controllers\\{$miController}Controller";
     }
 
     function setMethod()
     {
-        $this->method = $this->url[4];
+        if (empty($this->url[2])) {
+            $this->method = 'index';
+        } else {
+            $this->method = $this->url[2];
+        }
     }
 
     function getMethod()
@@ -37,6 +50,12 @@ class Request
 
     function send()
     {
-        echo "<p>en el controlador [$this->controller] llamar al metodo [$this->method] </p>";
+        $miController = $this->getController();
+        $miMethod = $this->getMethod();
+
+        $response = call_user_func([
+            new $miController,
+            $miMethod
+        ]);
     }
 }
