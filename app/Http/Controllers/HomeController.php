@@ -6,6 +6,6 @@ class HomeController
 {
     function index()
     {
-        echo 'hola mundo esto en home controller';
+        return view('home');
     }
 }

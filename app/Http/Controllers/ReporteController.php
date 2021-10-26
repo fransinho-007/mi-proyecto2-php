@@ -6,6 +6,6 @@ class ReporteController
 {
     function index()
     {
-        echo 'hola estoy en reporte controlles';
+        return view('homeReporte');
     }
 }

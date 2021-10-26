@@ -6,6 +6,21 @@ class ProductosController
 {
     function index()
     {
-        echo 'hola estoy en productos controlles';
+        return view('homeProductos');
+    }
+
+    function listar()
+    {
+        return view('listarProductos');
+    }
+
+    function guardar()
+    {
+        return view('guardarProducto');
+    }
+
+    function ver()
+    {
+        return view('verProducto');
     }
 }

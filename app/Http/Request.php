@@ -18,12 +18,12 @@ class Request
     function setController()
     {
         // ¿pregunta si en la casilla 3 del array url esta vacia?
-        if (empty($this->url[1])) {
+        if (empty($this->url[3])) {
             // estableser el controllador por defecto
             $this->controller = 'home';
         } else {
             // estableser el controlador solicitado por url
-            $this->controller = $this->url[1];
+            $this->controller = $this->url[3];
         }
     }
 
@@ -36,10 +36,10 @@ class Request
 
     function setMethod()
     {
-        if (empty($this->url[2])) {
+        if (empty($this->url[4])) {
             $this->method = 'index';
         } else {
-            $this->method = $this->url[2];
+            $this->method = $this->url[4];
         }
     }
 
@@ -53,9 +53,11 @@ class Request
         $miController = $this->getController();
         $miMethod = $this->getMethod();
 
-        $response = call_user_func([
+        $objetoResponse = call_user_func([
             new $miController,
             $miMethod
         ]);
+
+        $objetoResponse->send();
     }
 }
