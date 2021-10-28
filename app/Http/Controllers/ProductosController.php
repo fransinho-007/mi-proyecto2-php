@@ -24,6 +24,6 @@ class ProductosController
         $data = [
             'mensaje' => 'todo esta ok'
         ]
-        return json('verProducto', 200);
+        return json($data, 200);
     }
 }

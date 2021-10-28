@@ -64,11 +64,12 @@ class Request
     {
         $miController = $this->getController();
         $miMethod = $this->getMethod();
+        $miParam = $this->getParam();
 
         $objetoResponse = call_user_func([
             new $miController,
             $miMethod
-        ], $this->param);
+        ], $miParam);
 
         $objetoResponse->send();
     }
