@@ -7,6 +7,7 @@ class Request
     public $url = [];
     public $controller;
     public $method;
+    public $param;
 
     function __construct()
     {
