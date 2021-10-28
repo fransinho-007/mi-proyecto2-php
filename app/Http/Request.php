@@ -24,7 +24,7 @@ class Request
 
     function getParam()
     {
-
+        return $this->param;
     }
 
     function setController()
