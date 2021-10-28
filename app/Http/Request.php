@@ -14,6 +14,17 @@ class Request
         $this->url = explode('/', $_SERVER['REQUEST_URI']);
         $this->setController();
         $this->setMethod();
+        $this->setParam();
+    }
+
+    function setParam()
+    {
+        $this->param = $this->url[3];
+    }
+
+    function getParam()
+    {
+
     }
 
     function setController()
