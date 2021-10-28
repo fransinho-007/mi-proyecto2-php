@@ -19,8 +19,11 @@ class ProductosController
         return view('guardarProducto');
     }
 
-    function ver()
+    function ver($id)
     {
-        return view('verProducto');
+        $data = [
+            'mensaje' => 'todo esta ok'
+        ]
+        return json('verProducto', 200);
     }
 }

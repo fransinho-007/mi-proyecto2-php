@@ -68,7 +68,7 @@ class Request
         $objetoResponse = call_user_func([
             new $miController,
             $miMethod
-        ]);
+        ], $this->param);
 
         $objetoResponse->send();
     }
